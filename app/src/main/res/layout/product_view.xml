@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/product_view_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="false"
+    android:background="@color/white"
+    android:elevation="@dimen/detailed_view_elevation">
+
+    <RelativeLayout
+        android:id="@+id/spacing_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detailed_view_internal_vertical_bigger_spacing"
+        android:alpha="0.7"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/main_content_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/spacing_bottom"
+        app:layout_constraintTop_toBottomOf="@id/spacing_top">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/detailed_view_padding_horizontal"
+                android:paddingTop="@dimen/detailed_view_padding_top"
+                android:paddingEnd="@dimen/detailed_view_padding_horizontal"
+                android:paddingBottom="@dimen/detailed_view_padding_bottom"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView_picture"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintWidth_percent="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+               <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/detailed_view_padding_top"
+                android:paddingBottom="@dimen/detailed_view_padding_bottom"
+                android:orientation="horizontal">
+
+                   <TextView
+                       android:id="@+id/textView_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:layout_marginTop="@dimen/detailed_view_internal_vertical_spacing"
+                       android:textAlignment="textStart"
+                       android:textSize="@dimen/text_size_big" />
+
+                   <TextView
+                       android:id="@+id/textView_id"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/detailed_view_internal_vertical_spacing"
+                       android:textAlignment="center"
+                       android:layout_weight="1"
+                       android:textSize="@dimen/text_size_main"/>
+
+                   <TextView
+                       android:id="@+id/textView_price"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:textAlignment="textEnd"
+                       android:layout_marginTop="@dimen/detailed_view_internal_vertical_spacing"
+                       android:textSize="@dimen/text_size_big" />
+
+               </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/detailed_view_internal_vertical_spacing"
+                    android:textSize="@dimen/text_size_big"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/spacing_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detailed_view_internal_vertical_bigger_spacing"
+        android:alpha="0.7"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_content_container" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
